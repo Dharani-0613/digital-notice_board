@@ -26,3 +26,7 @@ arduino_code/ → ESP8266 code
 public/ → frontend files
 firebase.json → Firebase config
 
+## Future Improvements
+- Mobile app integration
+- Notification alerts
+- User authentication system
