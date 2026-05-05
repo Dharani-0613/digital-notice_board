@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #dfe9f3, #ffffff);
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background: #000;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header h1 {
+    font-size: 22px;
+}
+
+.home-btn {
+    background: #f39c12;
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.home-btn:hover {
+    background: #d68910;
+    transform: scale(1.05);
+}
+
+/* Main container */
+.container {
+    width: 80%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Input card */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 10px;
+}
+
+/* Input */
+input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+/* Add Button */
+button {
+    padding: 12px 20px;
+    background: #2980b9;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background: #1f6391;
+    transform: scale(1.05);
+}
+
+/* Notice list */
+#noticeList {
+    margin-top: 25px;
+    list-style: none;
+}
+
+/* Notice item */
+#noticeList li {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Delete button */
+#noticeList li button {
+    background: #e74c3c;
+    padding: 6px 12px;
+    border-radius: 5px;
+}
+
+#noticeList li button:hover {
+    background: #c0392b;
+}
+
+#noticeList li {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#noticeList li div:last-child button {
+    margin-left: 8px;
+}
+
+#noticeList small {
+    color: gray;
+    font-size: 12px;
+}

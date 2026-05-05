@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Faculty Login</title>
+    <link rel="stylesheet" href="login.css">
+    <!-- Font Awesome for eye icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+<div class="login-box">
+    <h2>Faculty Login</h2>
+
+    <input type="text" placeholder="Username" id="username">
+
+    <div class="password-container">
+        <input type="password" placeholder="Password" id="password">
+        <span id="togglePassword" class="eye">
+            <i class="fa fa-eye"></i> <!-- default: eye icon -->
+        </span>
+    </div>
+
+    <button id="loginBtn">Login</button>
+    <p id="errorMsg" style="color:red;"></p>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyAg3q1qpjJ4hS9yvAHzAAPGesSErIjatcQ",
+    authDomain: "digital-notice-board-7e57f.firebaseapp.com",
+    projectId: "digital-notice-board-7e57f",
+    storageBucket: "digital-notice-board-7e57f.appspot.com",
+    messagingSenderId: "14402052673",
+    appId: "1:14402052673:web:1d987b65490537152e9cc0"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  window.db = db;
+
+  const loginBtn = document.getElementById('loginBtn');
+  const errorMsg = document.getElementById('errorMsg');
+
+  loginBtn.addEventListener('click', async () => {
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
+
+    try {
+      const docRef = doc(db, "staff", "admin");
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        if (username === data.username && password === data.password) {
+          window.location.href = "dashboard.html";
+        } else {
+          errorMsg.textContent = "Invalid username or password!";
+        }
+      } else {
+        errorMsg.textContent = "Staff credential not found!";
+      }
+    } catch (error) {
+      errorMsg.textContent = error.message;
+    }
+  });
+</script>
+
+<!-- Show/hide password toggle -->
+<script>
+const togglePassword = document.getElementById('togglePassword');
+const password = document.getElementById('password');
+const icon = togglePassword.querySelector('i');
+
+togglePassword.addEventListener('click', () => {
+    if (password.type === 'password') {
+        password.type = 'text';
+        icon.classList.remove('fa-eye');
+        icon.classList.add('fa-eye-slash'); // shows slash when password is visible
+    } else {
+        password.type = 'password';
+        icon.classList.remove('fa-eye-slash');
+        icon.classList.add('fa-eye'); // back to eye when hidden
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,53 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    height: 100vh;
+    overflow: hidden; /* Prevent scrolling */
+    background: linear-gradient(135deg, #e3f2fd, #ffffff);
+}
+
+/* Header */
+header {
+    height: 80px;
+    background: #000000;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Main Content */
+.main-container {
+    height: calc(100vh - 80px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 500;
+}
+
+.login-btn {
+    padding: 12px 28px;
+    background: #27ae60;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #1e8449;
+    transform: scale(1.05);
+}

@@ -1,0 +1,1 @@
+// Home page – no logic required
